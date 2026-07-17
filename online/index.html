@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>HTTP Server</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        LinkedIn
+        <div id="posts"></div>
+        <button onclick="getRecentPosts()">fetch the recent posts</button>
+        <script>
+            async function getRecentPosts(){
+                const response = await fetch("http://jsonplaceholder.typicode.com/posts/1", {
+                    method: "GET"
+                }
+                );
+                const data = await response.json();
+                document.getElementById("posts").innerHTML = data.body
+              }
+        </script>
+
+    </body>
+</html>
